@@ -8,15 +8,17 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-    <div>
-        <h1>Web API Code Quiz</h1>
-        <p>Take a Web API Code Quiz! This is a timed quiz and you have 75 seconds to pass the quiz! Answer a question incorrectly and time will be deducted from your clock! Save your high sccores with your initials!</p>
-        <ol>
-            <li></li>
-        </ol>
+<header>
+    <div id="timer"></div>
+    <div id="score"></div>
+</header>
+    <div id="quizCard">
+        <h1 id="quizH1">Web API Code Quiz</h1>
+        <p id="quizP">Take a Web API Code Quiz! This is a timed quiz and you have 75 seconds to pass the quiz! Answer a question incorrectly and time will be deducted from your clock! Save your high sccores with your initials!</p>
+        <div id="choices"> </div>
         <button id="start">Start</button>
     </div>
-
+    <div id="endDiv"></div>
     <script src="assets/script.js"></script>
 </body>
 </html>
