@@ -48,15 +48,23 @@ var questions = [
 
 
 var startButton=document.getElementById("start");
-startButton.addEventListener("click", function(){
+
+
+startButton.addEventListener('click', function () {
+    document.querySelector('#timer').textContent = maxTime;
     startButton.classList.add('button-hide');
-    setInterval(function(){
-        document.querySelector("#timer").textContent=maxTime;
-        maxTime--; 
-        
-    }, 1000)
+    var interval = setInterval(function () {
+      if (parseInt(document.querySelector('#timer').textContent) > 0) {
+        console.log('above zero!');
+        document.querySelector('#timer').textContent = maxTime;
+        maxTime--;
+      } else {
+        console.log('clear interval!');
+        clearInterval(interval);
+      }
+    }, 1000);
     buildQuestionCard();
-})
+  });
 function buildQuestionCard() {
     question=questions[index];
     document.querySelector("#quizP").textContent=question.title;
@@ -105,12 +113,16 @@ function gameOver(){
     console.log (input.value)
     endDiv.appendChild(endMessage);
     endMessage.appendChild(input);
-   
-  
+
     
-   var button = document.createElement("button")
+   var button = document.createElement("button");
+   button.setAttribute ("style", "border: 1px solid black");
    
+
+}
+
    
     // add high score
     //restart
-}
+
+
