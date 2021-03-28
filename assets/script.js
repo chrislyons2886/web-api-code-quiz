@@ -9,6 +9,7 @@ var correctAns = 0
 var maxTime = 75
 var index = 0
 var score = 0
+var highScore =""
 
 
 var questions = [
@@ -78,14 +79,17 @@ function evaluateAnswer() {
     if (this.value !== questions[index].answer) {
         console.log ("wrong");
         maxTime=maxTime-10
-      
+        var rw = document.querySelector("#rw");
+        rw.innerHTML="Previous answer incorrect! Try to get this one right!";
     }else{
         console.log("right")
-     
+        var rw = document.querySelector("#rw");
+        rw.innerHTML="Your last answer was correct! Great job!";
     }
     index++; 
     if (index===questions.length){
         gameOver()
+        clearInterval(maxTime);
     } else{
     buildQuestionCard();
     }
@@ -93,14 +97,16 @@ function evaluateAnswer() {
 function gameOver(){
     document.getElementById("quizCard").innerHTML="";
     var endDiv = document.getElementById("endDiv");
-    endDiv.setAttribute("style", "border: 1px solid black")
+    endDiv.setAttribute("style", "border: 1px solid black");
     var endMessage =document.createElement("h1");
     endMessage.textContent="Game Over";
     var input = document.createElement("input");
     input.setAttribute('max', "{3}")
     console.log (input.value)
     endDiv.appendChild(endMessage);
-    endMessage.appendChild(input)
+    endMessage.appendChild(input);
+   
+  
     
    var button = document.createElement("button")
    
